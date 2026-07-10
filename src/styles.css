@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: theme("fontFamily.sans");
+  }
+
+  body {
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-4xl border border-white/70 bg-white/75 shadow-panel backdrop-blur;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-ink/45;
+  }
+
+  .hero-title {
+    @apply font-display text-4xl leading-none text-ink sm:text-5xl;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold;
+  }
+}
