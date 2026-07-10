@@ -7,6 +7,7 @@
 @layer base {
   html {
     font-family: theme("fontFamily.sans");
+    -webkit-font-smoothing: antialiased;
   }
 
   body {
@@ -16,22 +17,65 @@
   * {
     box-sizing: border-box;
   }
+
+  ::selection {
+    background-color: theme("colors.brand.100");
+  }
 }
 
 @layer components {
   .panel {
-    @apply rounded-4xl border border-white/70 bg-white/75 shadow-panel backdrop-blur;
+    @apply rounded-2xl border border-ink-100 bg-surface shadow-card;
+  }
+
+  .panel-hover {
+    @apply transition hover:shadow-raised hover:border-ink-200;
   }
 
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-ink/45;
+    @apply font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-ink-400;
   }
 
-  .hero-title {
-    @apply font-display text-4xl leading-none text-ink sm:text-5xl;
+  .page-title {
+    @apply text-2xl font-semibold leading-tight text-ink-900;
+  }
+
+  .section-title {
+    @apply text-base font-semibold leading-tight text-ink-900;
   }
 
   .pill {
-    @apply inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold;
+    @apply inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[11px] font-semibold leading-none;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink-900 px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-ink-800 active:bg-ink-950;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink-200 bg-surface px-3.5 py-2 text-sm font-semibold text-ink-700 transition hover:bg-ink-50 active:bg-ink-100;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-ink-500 transition hover:bg-ink-100 hover:text-ink-800;
+  }
+
+  .input {
+    @apply rounded-lg border border-ink-200 bg-surface px-3 py-2 text-sm text-ink-800 placeholder:text-ink-400 focus:border-brand-400 focus:outline-none focus:ring-4 focus:ring-brand-100;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.ink.200") transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme("colors.ink.200");
+    border-radius: 999px;
   }
 }
